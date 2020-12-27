@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <meta charset="UTF-8">
+    <title>Матчи</title>
+</head>
+<body th:style="'background: url(/images/fon.jpg) no-repeat center center fixed; background-size: 100%;'">
+<br>
+<div>
+    <h3 style="text-align:right;float:right;"><a th:href="@{/bets}">Перейти к моим ставкам</a></h3>
+</div>
+<br><br>
+<form action="#" th:action="@{/bets}" th:object="${bet}" method="post">
+    <br><br>
+    <table class="table table-striped table-bordered" width="100%">
+        <thead>
+        <tr>
+            <th> Id матча </th>
+            <th> Вид спорта </th>
+            <th> Домашняя команда </th>
+            <th> Гостевая команда </th>
+            <th> Результат </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="match, i : ${matches}">
+
+            <td th:value="${match.id}">
+                <span th:text="${match.id}"></span>
+            </td>
+            <td th:value="${match.sportGame}">
+                <span th:text="${match.sportGame}"></span>
+            </td>
+            <td>
+                <a th:href="${'/bet/'+match.home.id}" th:text="${match.home}" target="_blank" />
+            </td>
+            <td>
+                <a th:href="${'/bet/'+match.away.id}" th:text="${match.away}" target="_blank" />
+            </td>
+<!--            <td th:value="${match.result}">-->
+<!--                <span></span>-->
+<!--            </td>-->
+
+        </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <button> Провести матчи </button>
+</form>
+
+</body>
+</html>
