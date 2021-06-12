@@ -9,6 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Представление таблицы users.
+ *
+ * @author Николай Евсюков
+ */
 @Entity
 @Table(name = "users", schema = "public")
 public class User {

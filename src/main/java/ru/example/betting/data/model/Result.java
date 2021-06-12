@@ -10,30 +10,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Представление таблицы bets.
+ * Представление таблицы results.
  *
  * @author Николай Евсюков
  */
 @Entity
-@Table(name = "bets", schema = "public")
-public class Bet {
+@Table(name = "results", schema = "public")
+public class Result {
 
     @Id
+    @Column(name = "result_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "bet_id")
     private Integer id;
-
-    @ManyToOne(targetEntity = User.class)
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @ManyToOne(targetEntity = Match.class)
     @JoinColumn(name = "match_id")
     private Match match;
 
-    @ManyToOne(targetEntity = Team.class)
-    @JoinColumn(name = "winner")
-    private Team winner;
+    @ManyToOne(targetEntity = Score.class)
+    @JoinColumn(name = "score_id")
+    private Score score;
 
     public Integer getId() {
         return id;
@@ -41,14 +37,6 @@ public class Bet {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Match getMatch() {
@@ -59,11 +47,11 @@ public class Bet {
         this.match = match;
     }
 
-    public Team getWinner() {
-        return winner;
+    public Score getScore() {
+        return score;
     }
 
-    public void setWinner(Team winner) {
-        this.winner = winner;
+    public void setScore(Score score) {
+        this.score = score;
     }
 }

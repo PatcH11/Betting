@@ -9,6 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Представление таблицы matches.
+ *
+ * @author Николай Евсюков
+ */
 @Entity
 @Table(name = "matches", schema = "public")
 public class Match {
@@ -21,6 +26,10 @@ public class Match {
     @ManyToOne(targetEntity = SportGame.class)
     @JoinColumn(name = "sport_game_id")
     private SportGame sportGame;
+
+    @ManyToOne(targetEntity = Score.class)
+    @JoinColumn(name = "score_id")
+    private Score score;
 
     @ManyToOne(targetEntity = Team.class)
     @JoinColumn(name = "team_home_id")
@@ -44,6 +53,14 @@ public class Match {
 
     public void setSportGame(SportGame sportGame) {
         this.sportGame = sportGame;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
     }
 
     public Team getHome() {

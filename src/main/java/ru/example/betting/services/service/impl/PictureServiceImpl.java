@@ -10,9 +10,17 @@ import ru.example.betting.services.service.IPictureService;
 
 import java.io.IOException;
 
+/**
+ * Реализация интерфейса IPictureService.
+ *
+ * @author Николай Евсюков
+ */
 @Service
 public class PictureServiceImpl implements IPictureService {
 
+    /**
+     * Репозиторий для картинки.
+     */
     private final PictureRepository pictureRepository;
 
     @Autowired

@@ -6,6 +6,11 @@ import ru.example.betting.data.model.Bet;
 
 import java.util.List;
 
+/**
+ * Репозиторий для ставок.
+ *
+ * @author Николай Евсюков
+ */
 @Repository
 public interface BetRepository extends JpaRepository<Bet, Integer> {
 

@@ -6,9 +6,17 @@ import ru.example.betting.data.model.User;
 import ru.example.betting.data.repository.UserRepository;
 import ru.example.betting.services.service.IUserService;
 
+/**
+ * Реализация интерфейса IUserService.
+ *
+ * @author Николай Евсюков
+ */
 @Service
 public class UserServiceImpl implements IUserService {
 
+    /**
+     * Репозиторий для пользователя.
+     */
     private final UserRepository userRepository;
 
     @Autowired

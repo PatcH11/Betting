@@ -15,26 +15,52 @@ import ru.example.betting.services.service.IUserService;
 
 import java.io.IOException;
 
+/**
+ * Контроллер для пользователя.
+ *
+ * @author Николай Евсюков
+ */
 @Controller
-public class AppController {
+public class UserController {
 
+    /**
+     * Сервис для пользователя.
+     */
     private final IUserService userService;
+
+    /**
+     * Сервис для картинки.
+     */
     private final IPictureService pictureService;
 
     @Autowired
-    public AppController(IUserService userService,
-                         IPictureService pictureService) {
+    public UserController(IUserService userService,
+                          IPictureService pictureService) {
         this.userService = userService;
         this.pictureService = pictureService;
     }
 
+    /**
+     * Отображение страницы signup_form.
+     *
+     * @param model модель
+     * @return страницу
+     */
     @GetMapping("")
     public String viewHomePage(Model model) {
         model.addAttribute("user", new User());
 
-        return "signup_form";
+        return "index";
     }
 
+    /**
+     * Регистрация пользователя.
+     *
+     * @param file данные для сохраннения картини
+     * @param user пользователь
+     * @return странцу
+     * @throws IOException исключение, при сохранении картинки
+     */
     @PostMapping("/process_register")
     public String processRegister(@RequestParam("file") MultipartFile file,
                                   User user) throws IOException {

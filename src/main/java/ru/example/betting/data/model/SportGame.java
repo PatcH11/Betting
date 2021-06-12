@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Представление таблицы sport_games.
+ *
+ * @author Николай Евсюков
+ */
 @Entity
 @Table(name = "sport_games", schema = "public")
 public class SportGame {

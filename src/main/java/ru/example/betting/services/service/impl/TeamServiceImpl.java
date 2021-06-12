@@ -6,9 +6,17 @@ import ru.example.betting.data.model.Team;
 import ru.example.betting.data.repository.TeamRepository;
 import ru.example.betting.services.service.ITeamService;
 
+/**
+ * Реализация интерфейса ITeamService.
+ *
+ * @author Николай Евсюков
+ */
 @Service
 public class TeamServiceImpl implements ITeamService {
 
+    /**
+     * Репозиторий для команды.
+     */
     private final TeamRepository teamRepository;
 
     @Autowired

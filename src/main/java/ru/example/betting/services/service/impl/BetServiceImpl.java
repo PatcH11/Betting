@@ -8,9 +8,17 @@ import ru.example.betting.services.service.IBetService;
 
 import java.util.List;
 
+/**
+ * Реализация интерфейса IBetService.
+ *
+ * @author Николай Евсюков
+ */
 @Service
 public class BetServiceImpl implements IBetService {
 
+    /**
+     * Репозиторий для ставок.
+     */
     private final BetRepository betRepository;
 
     @Autowired

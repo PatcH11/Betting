@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+/**
+ * Представление таблицы pictures.
+ *
+ * @author Николай Евсюков
+ */
 @Entity
 @Table(name = "pictures", schema = "public")
 public class Picture {

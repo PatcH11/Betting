@@ -11,20 +11,40 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import ru.example.betting.services.service.impl.CustomUserDetailsService;
 
+/**
+ * Конфигурационный класс для безопасноти.
+ *
+ * @author Николай Евсюков
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /**
+     * Бин класса CustomUserDetailsService.
+     *
+     * @return данные о пользователе
+     */
     @Bean
     public UserDetailsService userDetailsService() {
         return new CustomUserDetailsService();
     }
 
+    /**
+     * Бин класса BCryptPasswordEncoder.
+     *
+     * @return кодировщик пароля
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Информация о пользователе.
+     *
+     * @return сведения о пользователе
+     */
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -34,11 +54,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
+    /**
+     * Настройка авторизации.
+     *
+     * @param auth управляет авторизацией
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
     }
 
+    /**
+     * Настройка маппингов для пользователя.
+     *
+     * @param http данные о пути
+     * @throws Exception исключение
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

@@ -33,21 +33,22 @@
                 <span th:text="${match.sportGame}"></span>
             </td>
             <td>
-                <a th:href="${'/bet/'+match.home.id}" th:text="${match.home}" target="_blank" />
+                <a th:href="${'/bet/'+match.home.id}" th:text="${match.home}" target="_blank"/>
             </td>
             <td>
-                <a th:href="${'/bet/'+match.away.id}" th:text="${match.away}" target="_blank" />
+                <a th:href="${'/bet/'+match.away.id}" th:text="${match.away}" target="_blank"/>
             </td>
-<!--            <td th:value="${match.result}">-->
-<!--                <span></span>-->
-<!--            </td>-->
+            <td th:value="${match.score}">
+                <span th:text="${betCheck.checkMatches(match)}"></span>
+            </td>
 
         </tr>
         </tbody>
     </table>
     <br><br>
-    <button> Провести матчи </button>
 </form>
+
+<button th:onclick="|window.location.href='/work'|" type="button"> Провести матчи</button>
 
 </body>
 </html>
